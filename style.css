@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at center, #1b112c 0%, #08030d 100%);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  padding: 20px 10px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.titulo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.2rem;
+  color: #ff7eb3;
+  margin-bottom: 5px;
+}
+
+.subtitulo {
+  color: #d1c4e9;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+/* Tulipán Morado SVG Grande en el Header */
+.tulipan-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  width: 100%;
+}
+
+.tulipan-svg {
+  width: 130px;
+  height: 150px;
+  filter: drop-shadow(0 0 15px rgba(156, 39, 176, 0.7));
+  animation: balanceo 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes balanceo {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-7deg) scale(1.03); }
+  50% { transform: rotate(0deg) scale(1); }
+  75% { transform: rotate(7deg) scale(1.03); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* Botón con efecto de latido */
+.btn {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 25px;
+  box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.btn-latido {
+  animation: latido 1.5s infinite;
+}
+
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+/* Tarjetas de fotos */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  border-radius: 14px;
+  width: 140px;
+  height: 180px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(40px) scale(0.8);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.revelada {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.08) rotate(2deg) !important;
+  border-color: #ff7eb3;
+  box-shadow: 0 10px 25px rgba(255, 126, 179, 0.4);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Tarjeta especial del video */
+.card-video {
+  background: linear-gradient(135deg, rgba(255, 65, 108, 0.25), rgba(123, 44, 191, 0.35));
+  border: 2px dashed #ff7eb3;
+}
+
+.card-video:hover {
+  transform: translateY(-8px) scale(1.1) !important;
+  box-shadow: 0 0 25px rgba(255, 126, 179, 0.8);
+}
+
+.icono-regalo {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contenido-misterio p {
+  font-size: 0.85rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Modales */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.activo {
+  display: flex;
+}
+
+.modal-contenido {
+  background: #1d162e;
+  border: 1px solid #ff7eb3;
+  padding: 22px;
+  border-radius: 20px;
+  max-width: 90%;
+  width: 420px;
+  text-align: center;
+  position: relative;
+  animation: popModal 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popModal {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-contenido img {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.modal-contenido video {
+  border-radius: 12px;
+}
+
+.modal-texto {
+  color: #f1e4ff;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Carta Final */
+.modal-carta {
+  background: linear-gradient(135deg, #2b183b, #1d102b);
+  border: 2px solid #ff7eb3;
+  padding: 30px 20px;
+}
+
+.titulo-carta {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #ff7eb3;
+  margin-bottom: 15px;
+}
+
+.cuerpo-carta p {
+  font-size: 1.05rem;
+  color: #f1e4ff;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}

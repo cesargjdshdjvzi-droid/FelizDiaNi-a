@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Ti ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Librería de confeti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Música de fondo -->
+  <audio id="musica" loop preload="auto" src="musica/musica.mp3"></audio>
+
+  <div class="container">
+    <div class="header">
+      <h1 class="titulo">Una sorpresa especial ✨</h1>
+      <p class="subtitulo" id="subtitulo">Presiona el botón para comenzar</p>
+      
+      <!-- Tulipán Morado SVG Grande en el Header -->
+      <div class="tulipan-container">
+        <svg class="tulipan-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tallo Verde -->
+          <path class="tallo" d="M50 60 Q50 90 52 115" stroke="#4CAF50" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <!-- Hoja Izquierda Verde -->
+          <path class="hoja" d="M50 90 Q30 80 25 65 Q38 68 50 85" fill="#43A047"/>
+          <!-- Hoja Derecha Verde -->
+          <path class="hoja" d="M51 82 Q70 70 75 55 Q62 60 51 77" fill="#388E3C"/>
+          <!-- Flor / Pétalos Morados -->
+          <g class="petalos-morados">
+            <path d="M30 35 C25 55 42 65 50 65 C58 65 75 55 70 35 C65 20 52 35 50 38 C48 35 35 20 30 35 Z" fill="#9C27B0"/>
+            <path d="M32 38 C22 25 35 15 42 28 C45 33 48 37 50 38 C42 45 35 48 32 38 Z" fill="#AB47BC"/>
+            <path d="M68 38 C78 25 65 15 58 28 C55 33 52 37 50 38 C58 45 65 48 68 38 Z" fill="#8E24AA"/>
+            <path d="M42 22 C46 12 54 12 58 22 C52 28 48 28 42 22 Z" fill="#BA68C8"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Botón con efecto latido -->
+    <button id="btnIniciar" class="btn btn-latido">Tócame 🎵</button>
+
+    <!-- Galería con 20 fotos (rutas estandarizadas) -->
+    <div class="galeria" id="galeria">
+      <div class="card" data-mensaje="Cada momento contigo es único e inolvidable. ❤️"><img src="fotos/foto1.jpeg" alt="Foto 1"></div>
+      <div class="card" data-mensaje="Gracias por sacarme siempre una sonrisa. ✨"><img src="fotos/foto2.jpeg" alt="Foto 2"></div>
+      <div class="card" data-mensaje="Amo cada una de nuestras aventuras. 🌟"><img src="fotos/foto3.jpeg" alt="Foto 3"></div>
+      <div class="card" data-mensaje="Eres una persona sumamente especial. 💖"><img src="fotos/foto4.jpeg" alt="Foto 4"></div>
+      <div class="card" data-mensaje="Los mejores recuerdos siempre son a tu lado. 📸"><img src="fotos/foto5.jpeg" alt="Foto 5"></div>
+      <div class="card" data-mensaje="Gracias por estar ahí siempre. 🌷"><img src="fotos/foto6.jpeg" alt="Foto 6"></div>
+      <div class="card" data-mensaje="Tu felicidad alegra mi día. ☀️"><img src="fotos/foto7.jpeg" alt="Foto 7"></div>
+      <div class="card" data-mensaje="Un día increíble grabado en mi corazón. 🎈"><img src="fotos/foto8.jpeg" alt="Foto 8"></div>
+      <div class="card" data-mensaje="Por muchísimos momentos más juntos. 🥂"><img src="fotos/foto9.jpeg" alt="Foto 9"></div>
+      <div class="card" data-mensaje="Simplemente gracias por existir. 💕"><img src="fotos/foto10.jpeg" alt="Foto 10"></div>
+      <div class="card" data-mensaje="Te quiero muchísimo hoy y siempre. 💐"><img src="fotos/foto11.jpeg" alt="Foto 11"></div>
+      <div class="card" data-mensaje="Tu sonrisa ilumina cualquier día gris. ☀️"><img src="fotos/foto12.jpeg" alt="Foto 12"></div>
+      <div class="card" data-mensaje="Tu ya eres parte de mi vida. ⏳❤️"><img src="fotos/foto13.jpeg" alt="Foto 13"></div>
+      <div class="card" data-mensaje="Gracias por llenar mi vida de alegría. ✨"><img src="fotos/foto14.jpeg" alt="Foto 14"></div>
+      <div class="card" data-mensaje="Eres la mejor coincidencia de mi vida. 🍀"><img src="fotos/foto15.jpeg" alt="Foto 15"></div>
+      <div class="card" data-mensaje="Me encantan nuestros pequeños momentos. 🌸"><img src="fotos/foto16.jpeg" alt="Foto 16"></div>
+      <div class="card" data-mensaje="Siempre guardaré esta foto con mucho cariño. 🖼️"><img src="fotos/foto17.jpeg" alt="Foto 17"></div>
+      <div class="card" data-mensaje="A tu lado todo se siente infinitamente mejor. 💫"><img src="fotos/foto18.jpeg" alt="Foto 18"></div>
+      <div class="card" data-mensaje="Gracias por hacer mi mundo un lugar más bonito. 🌎❤️"><img src="fotos/foto19.jpeg" alt="Foto 19"></div>
+      <div class="card" data-mensaje="Una foto hermosa para cerrar con broche de oro. 👑"><img src="fotos/foto20.jpeg" alt="Foto 20"></div>
+
+      <!-- Cuadro misterioso del video -->
+      <div class="card card-video" id="btnAbrirVideo">
+        <div class="contenido-misterio">
+          <span class="icono-regalo">🎬</span>
+          <p>Toca aquí para ver una sorpresa en video</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para fotos ampliada -->
+  <div id="modal" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" id="btnCerrar">&times;</span>
+      <img id="modalImg" src="" alt="Foto ampliada">
+      <p id="modalTexto" class="modal-texto"></p>
+    </div>
+  </div>
+
+  <!-- Modal para Video (videos/video1.mp4) -->
+  <div id="modalVideo" class="modal">
+    <div class="modal-contenido modal-contenido-video">
+      <span class="cerrar" id="btnCerrarVideo">&times;</span>
+      <h2 class="subtitulo">¡Un video para ti! 🎥</h2>
+      <video id="reproductorVideo" controls width="100%">
+        <source src="videos/video1.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+      </video>
+      <button id="btnVerCarta" class="btn" style="margin-top: 15px;">Ver mensaje final 💌</button>
+    </div>
+  </div>
+
+  <!-- Modal para Mensaje Final / Carta -->
+  <div id="modalCarta" class="modal">
+    <div class="modal-contenido modal-carta">
+      <span class="cerrar" id="btnCerrarCarta">&times;</span>
+      <h2 class="titulo-carta">Para ti, mi niña ❤️</h2>
+      <div class="cuerpo-carta">
+        <p>Mi niña, esto te lo doy con mucho cariño.</p>
+        <p>Quería prepararte este detalle para recordarte lo infinitamente especial que eres para mí y lo mucho que valoro cada segundo que compartimos juntos.</p>
+        <p>Gracias por cada risa, por tu compañía y por hacer que mis días sean siempre mucho más bonitos. Espero que este pequeño rincón te haya sacado una gran sonrisa.</p>
+        <p>¡Te quiero muchísimo hoy y siempre! ✨💐</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
